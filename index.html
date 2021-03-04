@@ -1,20 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 	<head>
         <meta charset="utf-8">
         <!-- <link type="text/css" rel="stylesheet" href="index.css"> -->
         <title>东方M-1漫才大奖赛统计信息查询</title>
-        <script>
-            var d = new Date();
-            var y = d.getFullYear()
-        </script>
     </head>
     <body>
-        <form action="1.py" method="post" target="nm_iframe">
+        <form action="cgi-bin/1.py" method="post" target="_blank">
             <table>
                 <tr>
                     <td><b>参赛编号：</b></td>
-                    <td><input type="number" name="num" min=1></td>
+                    <td><input type="number" name="num" min=1 /></td>
                 </tr>
             </table>
             
@@ -88,11 +84,11 @@
             <table>
                 <tr>
                     <td>装傻担当（ボケ）：</td>
-                    <td><input type="number" name="year_1" min=0 max=19></td>
+                    <td><input type="number" name="year_1" min=0 max=19 /></td>
                 </tr>
                 <tr>
                     <td>吐槽担当（ツッコミ）：</td>
-                    <td><input type="number" name="year_2" min=0 max=19></td>
+                    <td><input type="number" name="year_2" min=0 max=19 /></td>
                 </tr>
             </table>
             
@@ -100,11 +96,11 @@
             <table>
                 <tr>
                     <td>装傻担当（ボケ）：</td>
-                    <td><input type="number" name="pop_1" min=1 max=198></td>
+                    <td><input type="number" name="pop_1" min=1 max=198 /></td>
                 </tr>
                 <tr>
                     <td>吐槽担当（ツッコミ）：</td>
-                    <td><input type="number" name="pop_2" min=1 max=198></td>
+                    <td><input type="number" name="pop_2" min=1 max=198 /></td>
                 </tr>
             </table>
             
@@ -138,8 +134,8 @@
                 </tr>
                 
             </table>
-            <input type="submit" value="提交">
-            <input type="reset" value="重置">
+            <input type="submit" value="提交" />
+            <input type="reset" value="重置" />
         </form>
         
         <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
