@@ -1,15 +1,37 @@
 function pre_check() {
-    if (!addEventListener) {
-        alert("您的浏览器不支持addEventListener方法，如需正常使用功能，请更换浏览器或将浏览器升级至最新版本");
+    
+    if (typeof FileReader == 'undefined') {
+        alert("您的浏览器不支持FileReader，如需正常使用功能，请更换浏览器或将浏览器升级至最新版本");
     }
 }
 
 function main() {
-    var csv = new FileReader();
-    csv.readAsText("../db/touhou-manzai 2021.02.26.csv");
-    csv.onload = function() {
-        alert("yes");
+    var db;
+    if (window.XMLHttpRequest) {
+        var xhr = new XMLHttpRequest();
     }
+    else if (window.ActiveXObject) {
+        var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhr.open("POST","db/touhou-manzai 2021.02.26.csv",true);
+    xhr.send();
+    //console.log(xhr.status);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState==4 && xhr.status==200){
+            alert("yes");
+            console.log(xhr.responseText);
+        }
+        //else {alert("no")}
+        
+    }
+    //console.log(db);
+    
+    //var db = new File([],"../db/1.txt")
+    /*var csv = new FileReader();
+    csv.readAsText(db);
+    csv.onload = function() {
+        console.log(csv.result);
+    }*/
     form = document.forms["_form"];
     form.onsubmit = function() {
         var parm_num = form.num.value;
@@ -25,7 +47,12 @@ function main() {
 }
 
 function bonus() {
-    document.addEventListener("keydown", keydown);
+    if (addEventListener) {
+        document.addEventListener("keydown", keydown);
+    }
+    else if (attachEvent) {
+        document.attachEvent("keydown", keydown);
+    }
     function keydown(e) {
         if (e.keyCode == 90) {
             document.getElementById("_submit").click();
