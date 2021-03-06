@@ -13,7 +13,7 @@ function main() {
     else if (window.ActiveXObject) {
         var xhr = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    xhr.open("POST","db/touhou-manzai 2021.02.26.csv",true);
+    xhr.open("GET","db/touhou-manzai 2021.02.26.csv",true);
     xhr.send();
     //console.log(xhr.status);
     xhr.onreadystatechange = function() {
