@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh">
 	<head>
-        <meta charset="utf-8">
+        <meta charset="utf-8" />
         <!-- <link type="text/css" rel="stylesheet" href="index.css"> -->
         <title>东方M-1漫才大奖赛统计信息查询</title>
         <script src="js/main.js"></script>
     </head>
     <body>
-        <noscript>
-            本页面需要浏览器支持（启用）JavaScript
-        </noscript>
+        <noscript>本页面需要浏览器支持（启用）JavaScript</noscript>
+        <div id="warn"></div>
         <form name="_form" action="" method="post" target="nm_iframe">
             <table>
                 <tr>
@@ -38,8 +37,8 @@
                                 <option value="5">五面BOSS</option>
                                 <option value="5.5">六面道中</option>
                                 <option value="6">六面BOSS</option>
-                                <option value="7">EX面</option>
-                                <option value="8">PH面</option>
+                                <option value="7">EX面BOSS</option>
+                                <option value="8">PH面BOSS</option>
                             </optgroup>
                             <optgroup label="其他">
                                 <option value="0">主人公</option>
@@ -69,8 +68,8 @@
                                 <option value="5">五面BOSS</option>
                                 <option value="5.5">六面道中</option>
                                 <option value="6">六面BOSS</option>
-                                <option value="7">EX面</option>
-                                <option value="8">PH面</option>
+                                <option value="7">EX面BOSS</option>
+                                <option value="8">PH面BOSS</option>
                             </optgroup>
                             <optgroup label="其他">
                                 <option value="0">主人公</option>
@@ -132,7 +131,7 @@
                             <option value="2">第二位</option>
                             <option value="3">第三位</option>
                             <option value="4">第四位</option>
-                            <option value="">无PV或未在PV中登场</option>
+                            <option value="NaN">无PV或未在PV中登场</option>
                         </select>
                     </td>
                 </tr>
@@ -143,5 +142,7 @@
         </form>
         
         <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+        
+        <div id="output"></div>
     </body>
 </html>
