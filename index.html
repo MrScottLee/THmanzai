@@ -2,24 +2,28 @@
 <html lang="zh">
 	<head>
         <meta charset="utf-8" />
-        <!-- <link type="text/css" rel="stylesheet" href="index.css"> -->
         <title>东方M-1漫才大奖赛统计信息查询</title>
-        <script src="js/main.js"></script>
+        <script src="js/DataAnalysis.js" charset="utf-8"></script>
+        <script src="js/advanced.js" charset="utf-8"></script>
+        <script src="js/main.js" charset="utf-8"></script>
+        <link type="text/css" rel="stylesheet" href="css/main.css">
     </head>
     <body>
         <noscript>本页面需要浏览器支持（启用）JavaScript</noscript>
         <div id="warn"></div>
-        <form name="_form" action="" method="post" target="nm_iframe">
+        <form name="_form" action="" method="post" target="no_disp">
             <table>
                 <tr>
+                    <td class="hide"><input name="rs_num" type="checkbox" /></td>
                     <td><b>参赛编号：</b></td>
-                    <td><input type="number" name="num" min=1 /></td>
+                    <td><input name="num" type="number" min=1 /></td>
                 </tr>
             </table>
             
             <p><b>角色在初登场作品中的位置</b></p>
             <table>
                 <tr>
+                    <td class="hide"><input name="rs_stage_1" type="checkbox" /></td>
                     <td>装傻担当（ボケ）：</td>
                     <td>
                         <select name="stage_1">
@@ -51,6 +55,7 @@
                     </td>
                 </tr>
                 <tr>
+                    <td class="hide"><input name="rs_stage_2" type="checkbox" /></td>
                     <td>吐槽担当（ツッコミ）：</td>
                     <td>
                         <select name="stage_2">
@@ -86,29 +91,34 @@
             <p><b>角色初登场距当届漫才时间/年</b></p>
             <table>
                 <tr>
+                    <td class="hide"><input name="rs_year_1" type="checkbox" /></td>
                     <td>装傻担当（ボケ）：</td>
-                    <td><input type="number" name="year_1" min=0 max=19 /></td>
+                    <td><input name="year_1" type="number" min=0 max=19 /></td>
                 </tr>
                 <tr>
+                    <td class="hide"><input name="rs_year_2" type="checkbox" /></td>
                     <td>吐槽担当（ツッコミ）：</td>
-                    <td><input type="number" name="year_2" min=0 max=19 /></td>
+                    <td><input name="year_2" type="number" min=0 max=19 /></td>
                 </tr>
             </table>
             
             <p><b>角色在当届漫才前的最新人气排名</b></p>
             <table>
                 <tr>
+                    <td class="hide"><input name="rs_pop_1" type="checkbox" /></td>
                     <td>装傻担当（ボケ）：</td>
-                    <td><input type="number" name="pop_1" min=1 max=198 /></td>
+                    <td><input name="pop_1" type="number" min=1 max=198 /></td>
                 </tr>
                 <tr>
+                    <td class="hide"><input name="rs_pop_2" type="checkbox" /></td>
                     <td>吐槽担当（ツッコミ）：</td>
-                    <td><input type="number" name="pop_2" min=1 max=198 /></td>
+                    <td><input name="pop_2" type="number" min=1 max=198 /></td>
                 </tr>
             </table>
             
             <table>
                 <tr>
+                    <td class="hide"><input name="rs_order" type="checkbox" /></td>
                     <td><b>漫才表演顺序：</b></td>
                     <td>
                         <select name="order">
@@ -123,6 +133,7 @@
                 </tr>
                 
                 <tr>
+                    <td class="hide"><input name="rs_pv" type="checkbox" /></td>
                     <td><b>PV中登场顺序：</b></td>
                     <td>
                         <select name="pv">
@@ -137,11 +148,17 @@
                 </tr>
                 
             </table>
+            <table>
+                <tr>
+                    <td><input id="rs" type="checkbox" /></td>
+                    <td>关联检索模式</td>
+                </tr>
+            </table>
             <input id="_submit" type="submit" value="提交" />
             <input id="_reset" type="reset" value="重置" />
         </form>
         
-        <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+        <iframe id="hide" name="no_disp"></iframe>
         
         <div id="output"></div>
     </body>
