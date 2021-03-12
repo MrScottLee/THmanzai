@@ -32,3 +32,16 @@
     animation-name: ani;
     animation-duration: 0.6s
 }
+
+.funct {
+    display: table-cell
+}
+
+.funct input {
+    height: 20px;
+    width: 20px
+}
+
+.hide_funct {
+    display: none
+}

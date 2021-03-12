@@ -17,6 +17,40 @@ function da_base(out, j) {
     }
 }
 
+function da_sgl(parm, db, out) {
+    for (var j = 0; j < db_rank.length; j++) {
+        if (parm == db[j]) {
+            da_base(out, j);
+        }
+    }
+}
+
+function da_dbl(parm_1, parm_2, db_1, db_2, out) {
+    for (var j = 0; j < db_rank.length; j++) {
+        if (parm_1 == db_1[j] && parm_2 == db_2[j]) {
+            da_base(out, j);
+        }
+    }
+}
+ 
+function da_sgl_appr(parm, db, appr, out) {
+    for (var j = 0; j < db_rank.length; j++) {
+        if (db[j] >= Number(parm)-appr && db[j] <= Number(parm)+appr) {
+            da_base(out, j);
+        }
+    }
+}
+
+function da_dbl_appr(parm_1, parm_2, db_1, db_2, appr_1, appr_2, out) {
+    for (var j = 0; j < db_rank.length; j++) {
+        var cond = (db_1[j] >= Number(parm_1)-appr_1 && db_1[j] <= Number(parm_1)+appr_1 && 
+                    db_2[j] >= Number(parm_2)-appr_2 && db_2[j] <= Number(parm_2)+appr_2);
+        if (cond) {
+            da_base(out, j);
+        }
+    }
+}
+
 function da_claim(out, desc) {
     if (out[0] == 0) {
         var txt = "没有出现过" + desc + "的情况。";
@@ -44,7 +78,9 @@ function da_claim(out, desc) {
         var txt = txt.substring(0, txt.lastIndexOf("、"));
         var txt = txt.substring(0, txt.lastIndexOf("、")) + "和" + txt.substring(txt.lastIndexOf("、") + 1) + "。";
     }
-    return txt;
+    var section = document.createElement("p");
+    section.innerHTML = txt;
+    frag.appendChild(section);
 }
 
 var dict_stage_sgl = {

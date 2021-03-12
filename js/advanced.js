@@ -1,34 +1,42 @@
 function rs_pre() {
-    rs = document.getElementById("rs");
     rs_hide = document.getElementsByClassName("hide");
     rs_show = document.getElementsByClassName("show");
+    funct = document.getElementsByClassName("funct");
+    hide_funct = document.getElementsByClassName("hide_funct");
     
-        
     rs.onclick = function() {
         if (rs.checked) {
             while (rs_hide.length != 0) {
                 rs_hide[0].className = "show";
             }
+            while (funct.length != 0) {
+                funct[0].className = "hide_funct";
+            }
+            
+            document.getElementById("p_stage_1").innerHTML = "装傻担当（ボケ）：";
+            document.getElementById("p_stage_2").innerHTML = "吐槽担当（ツッコミ）：";
+            document.getElementById("p_year_1").innerHTML = "装傻担当（ボケ）：";
+            document.getElementById("p_year_2").innerHTML = "吐槽担当（ツッコミ）：";
+            document.getElementById("p_pop_1").innerHTML = "装傻担当（ボケ）：";
+            document.getElementById("p_pop_2").innerHTML = "吐槽担当（ツッコミ）：";
         }
         else {
             while (rs_show.length != 0) {
                 rs_show[0].className = "hide";
             }
+            while (hide_funct.length != 0) {
+                hide_funct[0].className = "funct";
+            }
+            
+            if (fm.checked) {
+                document.getElementById("p_stage_1").innerHTML = "其中一人：";
+                document.getElementById("p_stage_2").innerHTML = "另外一人：";
+                document.getElementById("p_year_1").innerHTML = "其中一人：";
+                document.getElementById("p_year_2").innerHTML = "另外一人：";
+                document.getElementById("p_pop_1").innerHTML = "其中一人：";
+                document.getElementById("p_pop_2").innerHTML = "另外一人：";
+            }
         }
-    }
-    form.onreset = function() {
-        while (rs_show.length != 0) {
-            rs_show[0].className = "hide";
-        }
-        form.num.removeAttribute("required");
-        form.stage_1.removeAttribute("required");
-        form.stage_2.removeAttribute("required");
-        form.year_1.removeAttribute("required");
-        form.year_2.removeAttribute("required");
-        form.pop_1.removeAttribute("required");
-        form.pop_2.removeAttribute("required");
-        form.order.removeAttribute("required");
-        form.pv.removeAttribute("required");
     }
     
     function rs_req(rs_parm, parm) {
@@ -50,8 +58,7 @@ function rs_pre() {
     form.rs_pv.onclick = function() {rs_req(form.rs_pv, form.pv)};
 }
 
-function rs_da(frag, header) {
-    var nothing = 0;
+function rs_da() {
     var out_rs = [0,0,0,0,0,0];
     
     if (form.rs_num.checked) {
@@ -200,9 +207,280 @@ function rs_da(frag, header) {
         header.innerHTML = "请至少勾选一项";
     }
     else {
-        var txt_rs = da_claim(out_rs, "同时满足以上条件");
-        var s_rs = document.createElement("p");
-        s_rs.innerHTML = txt_rs;
-        frag.appendChild(s_rs);
+        da_claim(out_rs, "同时满足以上条件");
     }
 }
+
+function fm_pre() {
+    fm.onclick = function() {
+        if (!rs.checked && fm.checked) {
+            document.getElementById("p_stage_1").innerHTML = "其中一人：";
+            document.getElementById("p_stage_2").innerHTML = "另外一人：";
+            document.getElementById("p_year_1").innerHTML = "其中一人：";
+            document.getElementById("p_year_2").innerHTML = "另外一人：";
+            document.getElementById("p_pop_1").innerHTML = "其中一人：";
+            document.getElementById("p_pop_2").innerHTML = "另外一人：";
+        }
+        else {
+            document.getElementById("p_stage_1").innerHTML = "装傻担当（ボケ）：";
+            document.getElementById("p_stage_2").innerHTML = "吐槽担当（ツッコミ）：";
+            document.getElementById("p_year_1").innerHTML = "装傻担当（ボケ）：";
+            document.getElementById("p_year_2").innerHTML = "吐槽担当（ツッコミ）：";
+            document.getElementById("p_pop_1").innerHTML = "装傻担当（ボケ）：";
+            document.getElementById("p_pop_2").innerHTML = "吐槽担当（ツッコミ）：";
+        }
+    }
+}
+
+function da_rm(out, j) {
+    out[0]--;
+    if (db_rank[j] == 1) {
+        out[1]--;
+    }
+    if (db_rank[j] == 2) {
+        out[2]--;
+    }
+    if (db_rank[j] == 3) {
+        out[3]--;
+    }
+    if (db_rank[j] == 4) {
+        out[4]--;
+    }
+    if (db_rank[j] == 5) {
+        out[5]--;
+    }
+}
+
+function da_sgl_fm(parm, db_1, db_2, out) {
+    da_sgl(parm, db_1, out);
+    da_sgl(parm, db_2, out);
+    for (var j = 0; j < db_rank.length; j++) {
+        if (parm == db_1[j] && parm == db_2[j]) {
+            da_rm(out, j);
+        }
+    }
+}
+
+function da_sgl_appr_fm(parm, db_1, db_2, appr, out) {
+    da_sgl_appr(parm, db_1, appr, out);
+    da_sgl_appr(parm, db_1, appr, out);
+    for (var j = 0; j < db_rank.length; j++) {
+        var cond = ((db_1[j] >= Number(parm)-appr && db_1[j] <= Number(parm)+appr) && 
+                    (db_2[j] >= Number(parm)-appr && db_2[j] <= Number(parm)+appr));
+        if (cond) {
+            da_rm(out, j);
+        }
+    }
+}
+
+function da_dbl_appr_fm(parm_1, parm_2, db_1, db_2, appr_1, appr_2, out) {
+    da_dbl_appr(parm_1, parm_2, db_1, db_2, appr_1, appr_2, out);
+    da_dbl_appr(parm_1, parm_2, db_2, db_1, appr_1, appr_2, out);
+    for (var j = 0; j < db_rank.length; j++) {
+        var cond = ((db_1[j] >= Number(parm_1)-appr_1 && db_1[j] <= Number(parm_1)+appr_1) && 
+                    (db_1[j] >= Number(parm_2)-appr_2 && db_1[j] <= Number(parm_2)+appr_2) && 
+                    (db_2[j] >= Number(parm_1)-appr_1 && db_2[j] <= Number(parm_1)+appr_1) && 
+                    (db_2[j] >= Number(parm_2)-appr_2 && db_2[j] <= Number(parm_2)+appr_2));
+        if (cond) {
+            da_rm(out, j);
+        }
+    }
+}
+
+function stage_fm(out_stage) {
+    if (parm_stage_1 != "") {
+        out_stage["stage_1f"] = [0,0,0,0,0,0];
+        da_sgl_fm(parm_stage_1, db_stage_1, db_stage_2, out_stage["stage_1f"]);
+        var desc_stage_1f = "其中一人" + dict_stage_sgl[parm_stage_1];
+        da_claim(out_stage["stage_1f"], desc_stage_1f);
+    }
+    else {
+        nothing++;
+    }
+    
+    if (parm_stage_2 != "") {
+        if (parm_stage_1 != parm_stage_2) {
+            out_stage["stage_2f"] = [0,0,0,0,0,0];
+            da_sgl_fm(parm_stage_2, db_stage_1, db_stage_2, out_stage["stage_2f"]);
+            var desc_stage_2f = "其中一人" + dict_stage_sgl[parm_stage_2];
+            da_claim(out_stage["stage_2f"], desc_stage_2f);
+        }
+    }
+    else {
+        nothing++;
+    }
+    
+    if (parm_stage_1 != "" && parm_stage_2 != "") {
+        out_stage["stage_f"] = [0,0,0,0,0,0];
+        da_dbl(parm_stage_1, parm_stage_2, db_stage_1, db_stage_2, out_stage["stage_f"]);
+        if (parm_stage_1 == parm_stage_2) {
+            var desc_stage_f = "两人" + dict_stage_dbl[parm_stage_1];
+        }
+        else {
+            da_dbl(parm_stage_1, parm_stage_2, db_stage_2, db_stage_1, out_stage["stage_f"]);
+            var desc_stage_f = desc_stage_1f + "、另外一人" + dict_stage_dbl[parm_stage_2];
+        }
+        da_claim(out_stage["stage_f"], desc_stage_f);
+    }
+}
+
+function year_fm(out_year) {
+    if (parm_year_1 != "") {
+       out_year["year_1f"] = [0,0,0,0,0,0];
+       da_sgl_fm(parm_year_1, db_year_1, db_year_2, out_year["year_1f"]);
+       var desc_year_1f = "其中一人初登场距当届漫才" + parm_year_1 + "年";
+       da_claim(out_year["year_1f"], desc_year_1f);
+       
+       var up_year_1f = Number(parm_year_1) + 1,
+           low_year_1f = Number(parm_year_1) - 1;
+       var desc_year_1af = "其中一人初登场距当届漫才时间在" + low_year_1f + "年至" + up_year_1f + "年之间";
+       if (out_year["year_1f"][0] == 0) {
+           out_year["year_1af"] = [0,0,0,0,0,0];
+           da_sgl_appr_fm(parm_year_1, db_year_1, db_year_2, 1, out_year["year_1af"]);
+           da_claim(out_year["year_1af"], desc_year_1af);
+       }
+    }
+    else {
+        nothing++;
+    }
+    
+    if (parm_year_2 != "") {
+       if (parm_year_1 != parm_year_2) {
+           out_year["year_2f"] = [0,0,0,0,0,0];
+           da_sgl_fm(parm_year_2, db_year_1, db_year_2, out_year["year_2f"]);
+           var desc_year_2f = "其中一人初登场距当届漫才" + parm_year_2 + "年";
+           da_claim(out_year["year_2f"], desc_year_2f);
+           
+           var up_year_2f = Number(parm_year_2) + 1,
+               low_year_2f = Number(parm_year_2) - 1;
+           var desc_year_2af = "其中一人初登场距当届漫才时间在" + low_year_2f + "年至" + up_year_2f + "年之间";
+           if (out_year["year_2f"][0] == 0) {
+               out_year["year_2af"] = [0,0,0,0,0,0];
+               da_sgl_appr_fm(parm_year_2, db_year_1, db_year_2, 1, out_year["year_2af"]);
+               da_claim(out_year["year_2af"], desc_year_2af);
+           }
+       }
+    }
+    else {
+        nothing++;
+    }
+    
+    if (parm_year_1 != "" && parm_year_2 != "") {
+        out_year["year_f"] = [0,0,0,0,0,0];
+        da_dbl(parm_year_1, parm_year_2, db_year_1, db_year_2, out_year["year_f"]);
+        if (parm_year_1 == parm_year_2) {
+            var desc_year_f = "两人初登场距当届漫才时间均为" + parm_year_1 + "年";
+        }
+        else {
+            da_dbl(parm_year_1, parm_year_2, db_year_2, db_year_1, out_year["year_f"]);
+            var desc_year_f = desc_year_1f + "、另外一人初登场距当届漫才" + parm_year_2 + "年";
+        }
+        da_claim(out_year["year_f"], desc_year_f);
+        
+        if (out_year["year_f"][0] == 0) {
+            out_year["year_af"] = [0,0,0,0,0,0];
+            if (parm_year_1 == parm_year_2) {
+                da_dbl_appr(parm_year_1, parm_year_2, db_year_1, db_year_2, 1, 1, out_year["year_af"]);
+                var desc_year_af = "两人初登场距当届漫才时间均在" + low_year_1f + "年至" + up_year_1f + "年之间";
+            }
+            else {
+                da_dbl_appr_fm(parm_year_1, parm_year_2, db_year_1, db_year_2, 1, 1, out_year["year_af"]);
+                var desc_year_af = desc_year_1af + "、另外一人初登场距当届漫才时间在" + low_year_2f + "年至" + up_year_2f + "年之间";
+            }
+            da_claim(out_year["year_af"], desc_year_af);
+        }
+    }
+}
+
+function pop_fm(out_pop) {
+    if (parm_pop_1 != "") {
+        out_pop["pop_1f"] = [0,0,0,0,0,0];
+        da_sgl_fm(parm_pop_1, db_pop_1, db_pop_2, out_pop["pop_1f"]);
+        var desc_pop_1f = "其中一人在当届漫才前的最新人气排名为" + parm_pop_1 + "名";
+        da_claim(out_pop["pop_1f"], desc_pop_1f);
+        
+        if (parm_pop_1 >= 1 && parm_pop_1 <= 10) {
+            var appr_pop_1f = 1;
+        }
+        else if (parm_pop_1 <= 20) {
+            var appr_pop_1f = 2;
+        }
+        else if (parm_pop_1 <= 50) {
+            var appr_pop_1f = 5;
+        }
+        else {
+            var appr_pop_1f = 10;
+        }
+        var up_pop_1f = Number(parm_pop_1) + appr_pop_1f,
+            low_pop_1f = Number(parm_pop_1) - appr_pop_1f;
+        var desc_pop_1af = "其中一人在当届漫才前的最新人气排名在" + low_pop_1f + "名至" + up_pop_1f + "名之间";
+        if (out_pop["pop_1f"][0] == 0) {
+            out_pop["pop_1af"] = [0,0,0,0,0,0];
+            da_sgl_appr_fm(parm_pop_1, db_pop_1, db_pop_2, appr_pop_1f, out_pop["pop_1af"]);
+            da_claim(out_pop["pop_1af"], desc_pop_1af);
+        }
+    }
+    else {
+        nothing++;
+    }
+    
+    if (parm_pop_2 != "") {
+        if (parm_pop_1 != parm_pop_2) {
+            out_pop["pop_2f"] = [0,0,0,0,0,0];
+            da_sgl_fm(parm_pop_2, db_pop_1, db_pop_2, out_pop["pop_2f"]);
+            var desc_pop_2f = "其中一人在当届漫才前的最新人气排名为" + parm_pop_2 + "名";
+            da_claim(out_pop["pop_2f"], desc_pop_2f);
+            
+            if (parm_pop_2 >= 1 && parm_pop_2 <= 10) {
+                var appr_pop_2f = 1;
+            }
+            else if (parm_pop_2 <= 20) {
+                var appr_pop_2f = 2;
+            }
+            else if (parm_pop_2 <= 50) {
+                var appr_pop_2f = 5;
+            }
+            else {
+                var appr_pop_2f = 10;
+            }
+            var up_pop_2f = Number(parm_pop_2) + appr_pop_2f,
+                low_pop_2f = Number(parm_pop_2) - appr_pop_2f;
+            var desc_pop_2af = "其中一人在当届漫才前的最新人气排名在" + low_pop_2f + "名至" + up_pop_2f + "名之间";
+            if (out_pop["pop_2f"][0] == 0) {
+                out_pop["pop_2af"] = [0,0,0,0,0,0];
+                da_sgl_appr_fm(parm_pop_2, db_pop_1, db_pop_2, appr_pop_2f, out_pop["pop_2af"]);
+                da_claim(out_pop["pop_2af"], desc_pop_2af);
+            }
+        }
+    }
+    else {
+        nothing++;
+    }
+    
+    if (parm_pop_1 != "" && parm_pop_2 != "") {
+        out_pop["pop_f"] = [0,0,0,0,0,0];
+        da_dbl(parm_pop_1, parm_pop_2, db_pop_1, db_pop_2, out_pop["pop_f"]);
+        if (parm_pop_1 == parm_pop_2) {
+            var desc_pop_f = "两人在当届漫才前的最新人气排名为" + parm_pop_1 + "名";
+        }
+        else {
+            da_dbl(parm_pop_1, parm_pop_2, db_pop_2, db_pop_1, out_pop["pop_f"]);
+            var desc_pop_f = desc_pop_1f + "、另外一人在当届漫才前的最新人气排名为" + parm_pop_2 + "名";
+        }
+        da_claim(out_pop["pop_f"], desc_pop_f);
+        
+        if (out_pop["pop_f"][0] == 0) {
+            out_pop["pop_af"] = [0,0,0,0,0,0];
+            if (parm_pop_1 == parm_pop_2) {
+                da_dbl_appr(parm_pop_1, parm_pop_2, db_pop_1, db_pop_2, appr_pop_1f, appr_pop_2f, out_pop["pop_af"]);
+                var desc_pop_af = "两人在当届漫才前的最新人气排名均在" + low_pop_1f + "名至" + up_pop_1f + "名之间";
+            }
+            else {
+                da_dbl_appr_fm(parm_pop_1, parm_pop_2, db_pop_1, db_pop_2, appr_pop_1f, appr_pop_2f, out_pop["pop_af"]);
+                var desc_pop_af = desc_pop_1af + "、另外一人在当届漫才前的最新人气排名在" + low_pop_2f + "名至" + up_pop_2f + "名之间";
+            }
+            da_claim(out_pop["pop_af"], desc_pop_af);
+        }
+    }
+}
+
