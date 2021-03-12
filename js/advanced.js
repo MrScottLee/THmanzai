@@ -484,3 +484,49 @@ function pop_fm(out_pop) {
     }
 }
 
+function po_da() {
+    if (parm_pv != "NaN") {
+        var out_po = [0,0,0,0,0];
+        for (var j = 0; j < db_order.length; j++) {
+            if (parm_pv == db_pv[j]) {
+                out_po[0]++;
+                if (db_order[j] == 1) {
+                    out_po[1]++;
+                }
+                if (db_order[j] == 2) {
+                    out_po[2]++;
+                }
+                if (db_order[j] == 3) {
+                    out_po[3]++;
+                }
+                if (db_order[j] == 4) {
+                    out_po[4]++;
+                }
+            }
+        }
+        var txt_po = "（小组" + dict_pv[parm_pv] + "时，对应的漫才表演顺序";
+        if (out_po[1] != 0) {
+            var txt_po_1 = Number(out_po[1] / out_po[0] * 100).toFixed(2);
+            var txt_po = txt_po + "有" + txt_po_1 + "%为第一位、"
+        }
+        if (out_po[2] != 0) {
+            var txt_po_2 = Number(out_po[2] / out_po[0] * 100).toFixed(2);
+            var txt_po = txt_po + "有" + txt_po_2 + "%为第二位、"
+        }
+        if (out_po[3] != 0) {
+            var txt_po_3 = Number(out_po[3] / out_po[0] * 100).toFixed(2);
+            var txt_po = txt_po + "有" + txt_po_3 + "%为第三位、"
+        }
+        if (out_po[4] != 0) {
+            var txt_po_4 = Number(out_po[4] / out_po[0] * 100).toFixed(2);
+            var txt_po = txt_po + "有" + txt_po_4 + "%为第四位、"
+        }
+        var txt_po = txt_po.substring(0, txt_po.lastIndexOf("、")) + "。）";
+    }
+    else {
+        var txt_po = "（小组未在PV中登场时，对应的漫才表演顺序一般为第五位，作为败者复活组出场。）";
+    }
+    var s_po = document.createElement("p");
+    s_po.innerHTML = txt_po;
+    frag.appendChild(s_po);
+}

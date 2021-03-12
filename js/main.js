@@ -52,9 +52,9 @@ function main() {
     
     form = document.forms["_form"];
     
-    
     rs = document.getElementById("rs");
     fm = document.getElementById("fm");
+    po = document.getElementById("po");
     rs_pre();
     
     fm_pre();
@@ -374,6 +374,9 @@ function main() {
                 out_pv["index"] = [0,0,0,0,0,0];
                 da_sgl(parm_pv, db_pv, out_pv["index"]);
                 da_claim(out_pv["index"], dict_pv[parm_pv]);
+                if (po.checked) {
+                    po_da();
+                }
             }
             else {
                 nothing++;
