@@ -55,8 +55,8 @@ function main() {
     rs = document.getElementById("rs");
     fm = document.getElementById("fm");
     po = document.getElementById("po");
+    adv = document.getElementById("adv");
     rs_pre();
-    
     fm_pre();
     
     form.onreset = function() {
@@ -110,14 +110,15 @@ function main() {
             //处理num
             var out_num = {};
             if (parm_num != "") {
+                parm_num = Number(parm_num);
                 out_num["index"] = [0,0,0,0,0,0];
                 da_sgl(parm_num, db_num, out_num["index"]);
                 var desc_num = "参赛编号为" + parm_num;
                 
                 if (out_num["index"][0] == 0) {
                     var txt_num = "没有出现过" + desc_num + "的情况。";
-                    if (true) {
-                        txt_num += "建议使用高级检索模式进行再检索。";
+                    if (!adv.checked) {
+                        txt_num += "建议使用高级模式进行再分析。";
                     }
                 }
                 else if (out_num["index"][0] == 1) {
@@ -141,13 +142,19 @@ function main() {
                         var txt_num = txt_num + out_num["index"][5] + "次第5名、";
                     }
                     var txt_num = txt_num.substring(0, txt_num.lastIndexOf("、"));
-                    var txt_num = (txt_num.substring(0, txt_num.lastIndexOf("、")) + "和" + 
-                                   txt_num.substring(txt_num.lastIndexOf("、") + 1) + "。");
+                    if (txt_num.indexOf("、") != -1) {
+                        var txt_num = (txt_num.substring(0, txt_num.lastIndexOf("、")) + "和" + 
+                                       txt_num.substring(txt_num.lastIndexOf("、") + 1));
+                    }
+                    txt_num += "。";
                 }
                 var s_num = document.createElement("p");
                 s_num.innerHTML = txt_num;
                 frag.appendChild(s_num);
                 
+                if (adv.checked) {
+                    num_adv(out_num);
+                }
             }
             else {
                 nothing++;
@@ -196,6 +203,7 @@ function main() {
             var out_year = {};
             if (!fm.checked) {
                 if (parm_year_1 != "") {
+                    parm_year_1 = Number(parm_year_1);
                     out_year["year_1"] = [0,0,0,0,0,0];
                     da_sgl(parm_year_1, db_year_1, out_year["year_1"]);
                     var desc_year_1 = "装傻担当（ボケ）初登场距当届漫才" + parm_year_1 + "年";
@@ -215,6 +223,7 @@ function main() {
                 }
                 
                 if (parm_year_2 != "") {
+                    parm_year_2 = Number(parm_year_2);
                     out_year["year_2"] = [0,0,0,0,0,0];
                     da_sgl(parm_year_2, db_year_2, out_year["year_2"]);
                     var desc_year_2 = "吐槽担当（ツッコミ）初登场距当届漫才" + parm_year_2 + "年";
@@ -266,6 +275,7 @@ function main() {
             var out_pop = {};
             if (!fm.checked) {
                 if (parm_pop_1 != "") {
+                    parm_pop_1 = Number(parm_pop_1);
                     out_pop["pop_1"] = [0,0,0,0,0,0];
                     da_sgl(parm_pop_1, db_pop_1, out_pop["pop_1"]);
                     var desc_pop_1 = "装傻担当（ボケ）在当届漫才前的最新人气排名为" + parm_pop_1 + "名";
@@ -297,6 +307,7 @@ function main() {
                 }
                 
                 if (parm_pop_2 != "") {
+                    parm_pop_2 = Number(parm_pop_2);
                     out_pop["pop_2"] = [0,0,0,0,0,0];
                     da_sgl(parm_pop_2, db_pop_2, out_pop["pop_2"]);
                     var desc_pop_2 = "吐槽担当（ツッコミ）在当届漫才前的最新人气排名为" + parm_pop_2 + "名";
