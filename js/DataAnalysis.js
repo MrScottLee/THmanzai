@@ -1,3 +1,9 @@
+function br() {
+    var linebreak = document.createElement("p");
+    linebreak.innerHTML = " ";
+    frag.appendChild(linebreak);
+}
+
 function da_base(out, j) {
     out[0]++;
     if (db_rank[j] == 1) {
@@ -76,7 +82,10 @@ function da_claim(out, desc) {
             var txt = txt + out[5] + "次第5名、";
         }
         var txt = txt.substring(0, txt.lastIndexOf("、"));
-        var txt = txt.substring(0, txt.lastIndexOf("、")) + "和" + txt.substring(txt.lastIndexOf("、") + 1) + "。";
+        if (txt.indexOf("、") != -1) {
+            var txt = txt.substring(0, txt.lastIndexOf("、")) + "和" + txt.substring(txt.lastIndexOf("、") + 1);
+        }
+        txt += "。";
     }
     var section = document.createElement("p");
     section.innerHTML = txt;

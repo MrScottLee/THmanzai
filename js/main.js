@@ -104,6 +104,7 @@ function main() {
         header = document.createElement("p");
         header.innerHTML = "在历届漫才中：";
         frag.appendChild(header);
+        br();
         nothing = 0;
         
         if (!rs.checked) {
@@ -155,6 +156,7 @@ function main() {
                 if (adv.checked) {
                     num_adv(out_num);
                 }
+                br();
             }
             else {
                 nothing++;
@@ -168,6 +170,9 @@ function main() {
                     da_sgl(parm_stage_1, db_stage_1, out_stage["stage_1"]);
                     var desc_stage_1 = "装傻担当（ボケ）" + dict_stage_sgl[parm_stage_1];
                     da_claim(out_stage["stage_1"], desc_stage_1);
+                    if (parm_stage_2 == "") {
+                        br();
+                    }
                 }
                 else {
                     nothing++;
@@ -178,6 +183,9 @@ function main() {
                     da_sgl(parm_stage_2, db_stage_2, out_stage["stage_2"]);
                     var desc_stage_2 = "吐槽担当（ツッコミ）" + dict_stage_sgl[parm_stage_2];
                     da_claim(out_stage["stage_2"], desc_stage_2);
+                    if (parm_stage_1 == "") {
+                        br();
+                    }
                 }
                 else {
                     nothing++;
@@ -193,6 +201,7 @@ function main() {
                         var desc_stage = "两人" + dict_stage_dbl[parm_stage_1];
                     }
                     da_claim(out_stage["stage"], desc_stage);
+                    br();
                 }
             }
             else {
@@ -217,6 +226,10 @@ function main() {
                         da_sgl_appr(parm_year_1, db_year_1, 1, out_year["year_1a"]);
                         da_claim(out_year["year_1a"], desc_year_1a);
                     }
+                    
+                    if (parm_year_2 == "") {
+                        br();
+                    }
                 }
                 else {
                     nothing++;
@@ -236,6 +249,10 @@ function main() {
                         out_year["year_2a"] = [0,0,0,0,0,0];
                         da_sgl_appr(parm_year_2, db_year_2, 1, out_year["year_2a"]);
                         da_claim(out_year["year_2a"], desc_year_2a);
+                    }
+                    
+                    if (parm_year_1 == "") {
+                        br();
                     }
                 }
                 else {
@@ -264,6 +281,8 @@ function main() {
                         }
                         da_claim(out_year["year_a"], desc_year_a);
                     }
+                    
+                    br();
                 }
             }
             else {
@@ -301,6 +320,10 @@ function main() {
                         da_sgl_appr(parm_pop_1, db_pop_1, appr_pop_1, out_pop["pop_1a"]);
                         da_claim(out_pop["pop_1a"], desc_pop_1a);
                     }
+                    
+                    if (parm_pop_2 == "") {
+                        br();
+                    }
                 }
                 else {
                     nothing++;
@@ -333,6 +356,10 @@ function main() {
                         da_sgl_appr(parm_pop_2, db_pop_2, appr_pop_2, out_pop["pop_2a"]);
                         da_claim(out_pop["pop_2a"], desc_pop_2a);
                     }
+                    
+                    if (parm_pop_1 == "") {
+                        br();
+                    }
                 }
                 else {
                     nothing++;
@@ -360,6 +387,8 @@ function main() {
                         }
                         da_claim(out_pop["pop_a"], desc_pop_a);
                     }
+                    
+                    br();
                 }
             }
             else {
@@ -374,6 +403,8 @@ function main() {
                 da_sgl(parm_order, db_order, out_order["index"]);
                 var desc_order = "漫才表演顺序为第" + parm_order + "位";
                 da_claim(out_order["index"], desc_order);
+                
+                br();
             }
             else {
                 nothing++;

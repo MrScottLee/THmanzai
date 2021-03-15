@@ -3,174 +3,222 @@
 	<head>
         <meta charset="utf-8" />
         <title>东方M-1漫才大奖赛统计信息查询</title>
+        <link rel="shortcut icon" href="favicon.ico">
         <script src="js/DataAnalysis.js" charset="utf-8"></script>
         <script src="js/advanced.js" charset="utf-8"></script>
         <script src="js/main.js" charset="utf-8"></script>
         <link type="text/css" rel="stylesheet" href="css/main.css">
+        
     </head>
     <body>
-        <noscript>本页面需要浏览器支持（启用）JavaScript</noscript>
-        <div id="warn"></div>
-        <form name="_form" action="" method="post" target="no_disp">
-            <table>
+        <noscript>
+            <table class="warn">
                 <tr>
-                    <td class="hide"><input name="rs_num" type="checkbox" /></td>
-                    <td><b>参赛编号：</b></td>
-                    <td><input name="num" type="number" min=1 /></td>
-                    <td><input id="adv" class="funct" type="checkbox" /></td>
-                    <td><label class="funct" for="adv">高级模式</label></td>
+                    <td>⚠️</td>
+                    <td>本页面需要浏览器支持（启用）JavaScript</td>
+                    <td>⚠️</td>
                 </tr>
             </table>
-            
-            <p><b>角色在初登场作品中的位置</b></p>
-            <table>
+        </noscript>
+        <div id="warn" class="warn"></div>
+        
+        <img class="logo" src="img/logo.png" alt="logo" />
+        <div class="head">
+            <h1>东方M-1漫才大奖赛统计信息查询</h1>
+            <table class="nav">
                 <tr>
-                    <td class="hide"><input name="rs_stage_1" type="checkbox" /></td>
-                    <td id="p_stage_1">装傻担当（ボケ）：</td>
                     <td>
-                        <select name="stage_1">
-                            <option value=""> </option>
-                            <optgroup label="在常规STG游戏中初登场">
-                                <option value="0.5">一面道中</option>
-                                <option value="1">一面BOSS</option>
-                                <option value="1.5">二面道中</option>
-                                <option value="2">二面BOSS</option>
-                                <option value="2.5">三面道中</option>
-                                <option value="3">三面BOSS</option>
-                                <option value="3.5">四面道中</option>
-                                <option value="4">四面BOSS</option>
-                                <option value="4.5">五面道中</option>
-                                <option value="5">五面BOSS</option>
-                                <option value="5.5">六面道中</option>
-                                <option value="6">六面BOSS</option>
-                                <option value="7">EX面BOSS</option>
-                                <option value="8">PH面BOSS</option>
-                            </optgroup>
-                            <optgroup label="其他">
-                                <option value="0">主人公</option>
-                                <option value="0.1">在书籍中初登场</option>
-                                <option value="0.2">在官方音乐CD中初登场</option>
-                                <option value="0.3">在特殊弹幕类游戏中初登场</option>
-                                <option value="6.1">在格斗作中初登场</option>
-                            </optgroup>
-                        </select>
+                        切换语言
+                        <ul>
+                            <li><a href="#">功能暂未实现</a></li>
+                        </ul>
                     </td>
-                </tr>
-                <tr>
-                    <td class="hide"><input name="rs_stage_2" type="checkbox" /></td>
-                    <td id="p_stage_2">吐槽担当（ツッコミ）：</td>
+                    <td><a class="instruct" href="https://www.bilibili.com/read/cv1" target="_blank">使用说明</a></td>
                     <td>
-                        <select name="stage_2">
-                            <option value=""> </option>
-                            <optgroup label="在常规STG游戏中初登场">
-                                <option value="0.5">一面道中</option>
-                                <option value="1">一面BOSS</option>
-                                <option value="1.5">二面道中</option>
-                                <option value="2">二面BOSS</option>
-                                <option value="2.5">三面道中</option>
-                                <option value="3">三面BOSS</option>
-                                <option value="3.5">四面道中</option>
-                                <option value="4">四面BOSS</option>
-                                <option value="4.5">五面道中</option>
-                                <option value="5">五面BOSS</option>
-                                <option value="5.5">六面道中</option>
-                                <option value="6">六面BOSS</option>
-                                <option value="7">EX面BOSS</option>
-                                <option value="8">PH面BOSS</option>
-                            </optgroup>
-                            <optgroup label="其他">
-                                <option value="0">主人公</option>
-                                <option value="0.1">在书籍中初登场</option>
-                                <option value="0.2">在官方音乐CD中初登场</option>
-                                <option value="0.3">在特殊弹幕类游戏中初登场</option>
-                                <option value="6.1">在格斗作中初登场</option>
-                            </optgroup>
-                        </select>
+                        其他功能
+                        <ul>
+                            <li><a href="https://www.r-note.jp" target="_blank">R-note（东方M-1漫才制作方）官网</a></li>
+                            <li><a href="https://toho-vote.info" target="_blank">东方人气投票官网</a></li>
+                            <li><a href="https://MrScottLee.github.com/THmanzai" target="_blank">查看本项目源代码</a></li>
+                        </ul>
                     </td>
                 </tr>
             </table>
-            
-            <p><b>角色初登场距当届漫才时间/年</b></p>
-            <table>
-                <tr>
-                    <td class="hide"><input name="rs_year_1" type="checkbox" /></td>
-                    <td id="p_year_1">装傻担当（ボケ）：</td>
-                    <td><input name="year_1" type="number" min=0 max=19 /></td>
-                </tr>
-                <tr>
-                    <td class="hide"><input name="rs_year_2" type="checkbox" /></td>
-                    <td id="p_year_2">吐槽担当（ツッコミ）：</td>
-                    <td><input name="year_2" type="number" min=0 max=19 /></td>
-                </tr>
-            </table>
-            
-            <p><b>角色在当届漫才前的最新人气排名</b></p>
-            <table>
-                <tr>
-                    <td class="hide"><input name="rs_pop_1" type="checkbox" /></td>
-                    <td id="p_pop_1">装傻担当（ボケ）：</td>
-                    <td><input name="pop_1" type="number" min=1 max=198 /></td>
-                </tr>
-                <tr>
-                    <td class="hide"><input name="rs_pop_2" type="checkbox" /></td>
-                    <td id="p_pop_2">吐槽担当（ツッコミ）：</td>
-                    <td><input name="pop_2" type="number" min=1 max=198 /></td>
-                </tr>
-            </table>
-            
-            <table>
-                <tr>
-                    <td class="hide"><input name="rs_order" type="checkbox" /></td>
-                    <td><b>漫才表演顺序：</b></td>
-                    <td>
-                        <select name="order">
-                            <option value=""> </option>
-                            <option value="1">第一位</option>
-                            <option value="2">第二位</option>
-                            <option value="3">第三位</option>
-                            <option value="4">第四位</option>
-                            <option value="5">第五位 (败者复活组)</option>
-                        </select>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="hide"><input name="rs_pv" type="checkbox" /></td>
-                    <td><b>PV中登场顺序：</b></td>
-                    <td>
-                        <select name="pv">
-                            <option value=""> </option>
-                            <option value="1">第一位</option>
-                            <option value="2">第二位</option>
-                            <option value="3">第三位</option>
-                            <option value="4">第四位</option>
-                            <option value="NaN">无PV或未在PV中登场</option>
-                        </select>
-                    </td>
+        </div>
+        
+        <div class="body">
+            <div class="input">
+                <form name="_form" action="" method="post" target="no_disp">
+                    <table>
+                        <tr>
+                            <td class="hide"><input id="rs_num" name="rs_num" type="checkbox" /></td>
+                            <td class="item"><label for="rs_num">参赛编号：</label></td>
+                            <td><input name="num" type="number" min=1 /></td>
+                            <td><input id="adv" class="funct" type="checkbox" /></td>
+                            <td><label class="funct" for="adv">高级模式</label></td>
+                        </tr>
+                    </table>
                     
-                </tr>
-                
-            </table>
-            <table>
-                <tr>
-                    <td><input id="rs" type="checkbox" /></td>
-                    <td><label for="rs">关联检索模式</label></td>
-                </tr>
-                <tr>
-                    <td><input id="fm" class="funct" type="checkbox" /></td>
-                    <td class="funct"><label for="fm">不区分装傻担当（ボケ）与吐槽担当（ツッコミ）</label></td>
-                </tr>
-                <tr>
-                    <td><input id="po" class="funct" type="checkbox" /></td>
-                    <td class="funct"><label for="po">显示PV中登场顺序与漫才表演顺序的关系</label></td>
-                </tr>
-            </table>
-            <input id="_submit" type="submit" value="提交" />
-            <input id="_reset" type="reset" value="重置" />
-        </form>
+                    <p class="item">角色在初登场作品中的位置</p>
+                    <table>
+                        <tr>
+                            <td class="hide"><input id="rs_stage_1" name="rs_stage_1" type="checkbox" /></td>
+                            <td><label id="p_stage_1" for="rs_stage_1">装傻担当（ボケ）：</label></td>
+                            <td>
+                                <select name="stage_1">
+                                    <option value=""> </option>
+                                    <optgroup label="在常规STG游戏中初登场">
+                                        <option value="0.5">一面道中</option>
+                                        <option value="1">一面BOSS</option>
+                                        <option value="1.5">二面道中</option>
+                                        <option value="2">二面BOSS</option>
+                                        <option value="2.5">三面道中</option>
+                                        <option value="3">三面BOSS</option>
+                                        <option value="3.5">四面道中</option>
+                                        <option value="4">四面BOSS</option>
+                                        <option value="4.5">五面道中</option>
+                                        <option value="5">五面BOSS</option>
+                                        <option value="5.5">六面道中</option>
+                                        <option value="6">六面BOSS</option>
+                                        <option value="7">EX面BOSS</option>
+                                        <option value="8">PH面BOSS</option>
+                                    </optgroup>
+                                    <optgroup label="其他">
+                                        <option value="0">主人公</option>
+                                        <option value="0.1">在书籍中初登场</option>
+                                        <option value="0.2">在官方音乐CD中初登场</option>
+                                        <option value="0.3">在特殊弹幕类游戏中初登场</option>
+                                        <option value="6.1">在格斗作中初登场</option>
+                                    </optgroup>
+                                </select>
+                            </td>   
+                        </tr>
+                        <tr>
+                            <td class="hide"><input id="rs_stage_2" name="rs_stage_2" type="checkbox" /></td>
+                            <td><label id="p_stage_2" for="rs_stage_2">吐槽担当（ツッコミ）：</label></td>
+                            <td>
+                                <select name="stage_2">
+                                    <option value=""> </option>
+                                    <optgroup label="在常规STG游戏中初登场">
+                                        <option value="0.5">一面道中</option>
+                                        <option value="1">一面BOSS</option>
+                                        <option value="1.5">二面道中</option>
+                                        <option value="2">二面BOSS</option>
+                                        <option value="2.5">三面道中</option>
+                                        <option value="3">三面BOSS</option>
+                                        <option value="3.5">四面道中</option>
+                                        <option value="4">四面BOSS</option>
+                                        <option value="4.5">五面道中</option>
+                                        <option value="5">五面BOSS</option>
+                                        <option value="5.5">六面道中</option>
+                                        <option value="6">六面BOSS</option>
+                                        <option value="7">EX面BOSS</option>
+                                        <option value="8">PH面BOSS</option>
+                                    </optgroup>
+                                    <optgroup label="其他">
+                                        <option value="0">主人公</option>
+                                        <option value="0.1">在书籍中初登场</option>
+                                        <option value="0.2">在官方音乐CD中初登场</option>
+                                        <option value="0.3">在特殊弹幕类游戏中初登场</option>
+                                        <option value="6.1">在格斗作中初登场</option>
+                                    </optgroup>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <p class="item">角色初登场距当届漫才时间/年</p>
+                    <table>
+                        <tr>
+                            <td class="hide"><input id="rs_year_1" name="rs_year_1" type="checkbox" /></td>
+                            <td><label id="p_year_1" for="rs_year_1">装傻担当（ボケ）：</label></td>
+                            <td><input name="year_1" type="number" min=0 max=19 /></td>
+                        </tr>
+                        <tr>
+                            <td class="hide"><input id="rs_year_2" name="rs_year_2" type="checkbox" /></td>
+                            <td><label id="p_year_2" for="rs_year_2">吐槽担当（ツッコミ）：</label></td>
+                            <td><input name="year_2" type="number" min=0 max=19 /></td>
+                        </tr>
+                    </table>
+                    
+                    <p class="item">角色在当届漫才前的最新人气排名</p>
+                    <table>
+                        <tr>
+                            <td class="hide"><input id="rs_pop_1" name="rs_pop_1" type="checkbox" /></td>
+                            <td><label id="p_pop_1" for="rs_pop_1">装傻担当（ボケ）：</label></td>
+                            <td><input name="pop_1" type="number" min=1 max=198 /></td>
+                        </tr>
+                        <tr>
+                            <td class="hide"><input id="rs_pop_2" name="rs_pop_2" type="checkbox" /></td>
+                            <td><label id="p_pop_2" for="rs_pop_2">吐槽担当（ツッコミ）：</label></td>
+                            <td><input name="pop_2" type="number" min=1 max=198 /></td>
+                        </tr>
+                    </table>
+                    
+                    <table class="po">
+                        <tr>
+                            <td class="hide"><input id="rs_order" name="rs_order" type="checkbox" /></td>
+                            <td class="item"><label for="rs_order">漫才表演顺序：</label></td>
+                            <td>
+                                <select name="order">
+                                    <option value=""> </option>
+                                    <option value="1">第一位</option>
+                                    <option value="2">第二位</option>
+                                    <option value="3">第三位</option>
+                                    <option value="4">第四位</option>
+                                    <option value="5">第五位 (败者复活组)</option>
+                                </select>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="hide"><input id="rs_pv" name="rs_pv" type="checkbox" /></td>
+                            <td class="item"><label for="rs_pv">PV中登场顺序：</label></td>
+                            <td>
+                                <select name="pv">
+                                    <option value=""> </option>
+                                    <option value="1">第一位</option>
+                                    <option value="2">第二位</option>
+                                    <option value="3">第三位</option>
+                                    <option value="4">第四位</option>
+                                    <option value="NaN">无PV或未在PV中登场</option>
+                                </select>
+                            </td>
+                            
+                        </tr>
+                        
+                    </table>
+                    <table>
+                        <tr>
+                            <td><input id="rs" type="checkbox" /></td>
+                            <td><label for="rs">关联检索模式</label></td>
+                        </tr>
+                        <tr>
+                            <td><input id="fm" class="funct" type="checkbox" /></td>
+                            <td class="funct"><label for="fm">不区分装傻担当（ボケ）与吐槽担当（ツッコミ）</label></td>
+                        </tr>
+                        <tr>
+                            <td><input id="po" class="funct" type="checkbox" /></td>
+                            <td class="funct"><label for="po">显示PV中登场顺序与漫才表演顺序的关系</label></td>
+                        </tr>
+                    </table>
+                    
+                    <table class="button">
+                        <tr>
+                            <td><input id="_submit" type="submit" value="查询" /></td>
+                            <td><input id="_reset" type="reset" value="重置" /></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            
+            <iframe name="no_disp"></iframe>
+            
+            <div id="output" class="paper"></div>
+        </div>
         
-        <iframe id="hide" name="no_disp"></iframe>
-        
-        <div id="output"></div>
+        <div class="bottom">
+            <p>Made by Scott_Lee</p>
+        </div>
     </body>
 </html>

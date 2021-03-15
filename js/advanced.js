@@ -155,6 +155,8 @@ function rs_da() {
         nothing++;
     }
     
+    br();
+    
     for (var j = 0; j < db_rank.length; j++) {
         if (form.rs_num.checked && parm_num != db_num[j]) {
             var cond_num = false;
@@ -420,6 +422,9 @@ function stage_fm(out_stage) {
         da_sgl_fm(parm_stage_1, db_stage_1, db_stage_2, out_stage["stage_1f"]);
         var desc_stage_1f = "其中一人" + dict_stage_sgl[parm_stage_1];
         da_claim(out_stage["stage_1f"], desc_stage_1f);
+        if (parm_stage_2 == "") {
+            br();
+        }
     }
     else {
         nothing++;
@@ -431,6 +436,9 @@ function stage_fm(out_stage) {
             da_sgl_fm(parm_stage_2, db_stage_1, db_stage_2, out_stage["stage_2f"]);
             var desc_stage_2f = "其中一人" + dict_stage_sgl[parm_stage_2];
             da_claim(out_stage["stage_2f"], desc_stage_2f);
+            if (parm_stage_1 == "") {
+                br();
+            }
         }
     }
     else {
@@ -448,6 +456,7 @@ function stage_fm(out_stage) {
             var desc_stage_f = desc_stage_1f + "、另外一人" + dict_stage_dbl[parm_stage_2];
         }
         da_claim(out_stage["stage_f"], desc_stage_f);
+        br();
     }
 }
 
@@ -466,6 +475,10 @@ function year_fm(out_year) {
             out_year["year_1af"] = [0,0,0,0,0,0];
             da_sgl_appr_fm(parm_year_1, db_year_1, db_year_2, 1, out_year["year_1af"]);
             da_claim(out_year["year_1af"], desc_year_1af);
+        }
+        
+        if (parm_year_2 == "") {
+            br();
         }
     }
     else {
@@ -487,6 +500,10 @@ function year_fm(out_year) {
                out_year["year_2af"] = [0,0,0,0,0,0];
                da_sgl_appr_fm(parm_year_2, db_year_1, db_year_2, 1, out_year["year_2af"]);
                da_claim(out_year["year_2af"], desc_year_2af);
+           }
+           
+           if (parm_year_1 == "") {
+               br();
            }
        }
     }
@@ -518,6 +535,8 @@ function year_fm(out_year) {
             }
             da_claim(out_year["year_af"], desc_year_af);
         }
+        
+        br();
     }
 }
 
@@ -548,6 +567,10 @@ function pop_fm(out_pop) {
             out_pop["pop_1af"] = [0,0,0,0,0,0];
             da_sgl_appr_fm(parm_pop_1, db_pop_1, db_pop_2, appr_pop_1f, out_pop["pop_1af"]);
             da_claim(out_pop["pop_1af"], desc_pop_1af);
+        }
+        
+        if (parm_pop_2 == "") {
+            br();
         }
     }
     else {
@@ -582,6 +605,10 @@ function pop_fm(out_pop) {
                 da_sgl_appr_fm(parm_pop_2, db_pop_1, db_pop_2, appr_pop_2f, out_pop["pop_2af"]);
                 da_claim(out_pop["pop_2af"], desc_pop_2af);
             }
+            
+            if (parm_pop_1 == "") {
+                br();
+            }
         }
     }
     else {
@@ -612,6 +639,8 @@ function pop_fm(out_pop) {
             }
             da_claim(out_pop["pop_af"], desc_pop_af);
         }
+        
+        br();
     }
 }
 
