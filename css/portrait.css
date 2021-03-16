@@ -24,9 +24,10 @@
 }
 
 .body {
-    width: 81%;
-    margin: 32px 7.5% 0;
-    padding: 2%;
+    width: calc(85% - 32px);
+    min-height: calc(100vh - 296px);
+    margin: 32px 7.5%;
+    padding: 15px;
     background-color: #ffffff;
     border: 1px solid #797a7e;
     border-radius: 10px;

@@ -164,7 +164,7 @@ input[type="number"]:focus {
 /*输出部分*/
 .paper {
     padding: 15px 0 45px;
-    background-color: #ffffffsmoke;
+    background-color: #f9f9f9;
     background-image: url(../img/paper.png);
     border: 1px solid #797a7e;
     border-bottom-left-radius: 20px 500px;
@@ -192,7 +192,6 @@ span {
 .bottom {
     width: 100%;
     height: 80px;
-    margin-top: 32px;
     text-align: center;
     color: #eeeeee;
     background-color: #98bcde
