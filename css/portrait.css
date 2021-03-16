@@ -1,0 +1,39 @@
+.logo {
+    display: none;
+}
+
+.head {
+    width: 100%;
+    height: 120px;
+    background-color: #417ca9;
+}
+
+.head h1 {
+    margin: 0;
+    padding-top: 32px;
+    font-size: 42px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+}
+
+.nav {
+    margin: 7px calc(50% - 270px) 0;
+    border: 0;
+    border-collapse: collapse
+}
+
+.body {
+    width: 81%;
+    margin: 32px 7.5% 0;
+    padding: 2%;
+    background-color: #ffffff;
+    border: 1px solid #797a7e;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #797a7e;
+    overflow: auto
+}
+
+.input {
+    height: 720px
+}

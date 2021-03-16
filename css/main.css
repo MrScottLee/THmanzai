@@ -25,7 +25,7 @@
     padding: 0px 25px;
     font-size: 48px;
     font-weight: bold;
-    color: white;
+    color: #ffffff;
     text-align: center;
     background-color: firebrick;
     opacity: 0.75
@@ -36,17 +36,21 @@ body {
     background-color: #eeeeee
 }
 
+/*导航栏*/
 .nav td {
     width: 180px;
     padding: 0;
     font-size: 20px;
     vertical-align: top;
     text-align: center;
-    color: white
+    color: #ffffff
 }
 
 .instruct {
-    color: white;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
     text-decoration: none
 }
 
@@ -55,9 +59,10 @@ body {
 }
 
 .nav ul {
+    z-index: 0;
     display: none;
     float: left;
-    width: 180px;
+    width: inherit;
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
@@ -67,6 +72,8 @@ body {
 
 .nav a:not(.instruct) {
     display: inline-block;
+    width: 148px;
+    height: 100%;
     padding: 4px 16px 4px 16px;
     font-size: 16px;
     color: #000000;
@@ -81,68 +88,7 @@ body {
     background-color: #d5e9f4
 }
 
-
-
-
-
-.logo {
-    float: left;
-    width: 128px;
-    height: 128px;
-    margin-top: 83px;
-    margin-left: 15%
-}
-
-.head {
-    width: calc(85% - 144px);
-    height: 144px;
-    padding-left: calc(15% + 144px);
-    background-color: #417ca9
-}
-
-.head h1 {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 32px;
-    font-size: 48px;
-    font-weight: bold;
-    color: white;
-}
-
-.nav {
-    margin-top: 22px;
-    border: 0;
-    border-collapse: collapse
-}
-
-.body {
-    width: 85%;
-    margin-top: 80px;
-    margin-left: 7.5%;
-    padding: 1%;
-    background-color: white;
-    border: 1px solid #797a7e;
-    border-radius: 10px;
-    box-shadow: 0 0 5px #797a7e;
-    overflow: auto
-}
-
-.input {
-    float: left;
-    width: 39%;
-    height: 720px
-}
-
-#output {
-    width: 60%;
-    margin-left: 40%;
-}
-
-
-
-
-
-
+/*输入部分*/
 form {
     margin: 15px;
     font-size: 16px
@@ -177,9 +123,8 @@ select:focus {
 }
 
 select:focus option {
-    background-color: white
+    background-color: #ffffff
 }
-
 
 input[type="number"] {
     width: 160px;
@@ -216,11 +161,10 @@ input[type="number"]:focus {
     background-color: #cccccc
 }
 
-
-
+/*输出部分*/
 .paper {
     padding: 15px 0 45px;
-    background-color: whitesmoke;
+    background-color: #ffffffsmoke;
     background-image: url(../img/paper.png);
     border: 1px solid #797a7e;
     border-bottom-left-radius: 20px 500px;
@@ -244,7 +188,7 @@ span {
     border-bottom: 3px groove #000000
 }
 
-
+/*底部栏*/
 .bottom {
     width: 100%;
     height: 80px;
@@ -256,12 +200,14 @@ span {
 
 .bottom p {
     margin: 0;
-    padding-top: 16px
+    padding-top: 12px
 }
 
+.bottom a {
+    color: #eeeeee
+}
 
-
-
+/*功能部分*/
 iframe {
     display: none
 }

@@ -1,3 +1,13 @@
+function style() {
+    var css = document.getElementsByTagName("link");
+    if (window.innerWidth >= window.innerHeight) {
+        css[2].setAttribute("href", "css/landscape.css");
+    }
+    else {
+        css[2].setAttribute("href", "css/portrait.css");
+    }
+}
+
 function main() {
     //使用Ajax导入CSV数据库
     if (window.XMLHttpRequest) {
@@ -456,6 +466,7 @@ function bonus() {
 }
 
 window.onload = function() {
+    style();
     main();
     bonus();
 }
