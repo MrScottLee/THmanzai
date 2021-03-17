@@ -1,10 +1,24 @@
 function style() {
-    var css = document.getElementsByTagName("link");
+    var css = document.getElementsByTagName("link")[2];
     if (window.innerWidth >= window.innerHeight) {
-        css[2].setAttribute("href", "css/landscape.css");
+        css.setAttribute("href", "css/landscape.css");
     }
     else {
-        css[2].setAttribute("href", "css/portrait.css");
+        css.setAttribute("href", "css/portrait.css");
+        
+        var change_lang = document.getElementsByTagName("a")[0];
+        change_lang.onfocus = function() {
+            document.getElementsByTagName("ul")[0].style.display = "block";
+        }
+        var other_funct = document.getElementsByTagName("a")[3];
+        other_funct.onfocus = function() {
+            document.getElementsByTagName("ul")[1].style.display = "block";
+        }
+        var body = document.getElementsByClassName("body")[0];
+        body.onclick = function() {
+            document.getElementsByTagName("ul")[0].style.display = "none";
+            document.getElementsByTagName("ul")[1].style.display = "none";
+        }
     }
 }
 

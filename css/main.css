@@ -18,12 +18,16 @@
     }
 }
 
+html {
+    -webkit-text-size-adjust: none
+}
+
 .warn {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 0px 25px;
-    font-size: 48px;
+    padding: 0 1.5rem;
+    font-size: 3rem;
     font-weight: bold;
     color: #ffffff;
     text-align: center;
@@ -38,15 +42,15 @@ body {
 
 /*导航栏*/
 .nav td {
-    width: 180px;
+    width: 11.25rem;
     padding: 0;
-    font-size: 20px;
+    font-size: 1.25rem;
     vertical-align: top;
     text-align: center;
     color: #ffffff
 }
 
-.instruct {
+.nav td > a {
     display: inline-block;
     width: 100%;
     height: 100%;
@@ -54,12 +58,7 @@ body {
     text-decoration: none
 }
 
-.nav td:hover {
-    background-color: #98bcde
-}
-
 .nav ul {
-    z-index: 0;
     display: none;
     float: left;
     width: inherit;
@@ -70,45 +69,36 @@ body {
     list-style: none
 }
 
-.nav a:not(.instruct) {
+.nav li > a {
     display: inline-block;
-    width: 148px;
+    width: 9.25rem;
     height: 100%;
-    padding: 4px 16px 4px 16px;
-    font-size: 16px;
+    padding: 0.25rem 1rem;
+    font-size: 1rem;
     color: #000000;
     text-decoration: none
 }
 
-.nav td:hover ul {
-    display: block
-}
-
-.nav li:hover {
-    background-color: #d5e9f4
-}
-
 /*输入部分*/
 form {
-    margin: 15px;
-    font-size: 16px
+    margin: 1rem
 }
 
 .item {
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     font-weight: bold
 }
 
 .po {
     border-collapse: separate;
-    border-spacing: 0 16px
+    border-spacing: 0 1rem
 }
 
 select {
-    width: 200px;
-    height: 32px;
-    padding-left: 8px;
+    width: 12.5rem;
+    height: 2rem;
+    padding-left: 0.5rem;
     border: 1px solid #797a7e;
     border-radius: 5px
 }
@@ -127,9 +117,9 @@ select:focus option {
 }
 
 input[type="number"] {
-    width: 160px;
-    height: 32px;
-    padding-left: 8px;
+    width: 10rem;
+    height: 2rem;
+    padding-left: 0.5rem;
     border: 1px solid #797a7e;
     border-radius: 5px
 }
@@ -145,13 +135,13 @@ input[type="number"]:focus {
 
 .button {
     width: 60%;
-    margin-top: 16px;
-    margin-left: 64px
+    margin-top: 1rem;
+    margin-left: 4rem
 }
 
 .button input {
-    width: 64px;
-    height: 40px;
+    width: 4rem;
+    height: 2.5rem;
     border: 2px solid #797a7e;
     border-radius: 5px
 }
@@ -174,14 +164,14 @@ input[type="number"]:focus {
 }
 
 #output p {
-    min-height: 24px;
-    margin: 0 15px;
-    font-size: 16px;
-    line-height: 24px
+    min-height: 1.5rem;
+    margin: 0 1rem;
+    font-size: 1rem;
+    line-height: 1.5rem
 }
 
 span {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: bold;
     font-style: italic;
     color: #417ca9;
@@ -191,7 +181,7 @@ span {
 /*底部栏*/
 .bottom {
     width: 100%;
-    height: 80px;
+    height: 5rem;
     text-align: center;
     color: #eeeeee;
     background-color: #98bcde
@@ -199,7 +189,7 @@ span {
 
 .bottom p {
     margin: 0;
-    padding-top: 12px
+    padding-top: 0.75rem
 }
 
 .bottom a {

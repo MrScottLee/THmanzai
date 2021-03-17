@@ -2,36 +2,49 @@
     float: left;
     width: 128px;
     height: 128px;
-    margin-top: 83px;
+    margin-top: calc(9rem - 61px);
     margin-left: 15%
 }
 
 .head {
-    width: calc(85% - 144px);
-    height: 144px;
-    padding-left: calc(15% + 144px);
-    background-color: #417ca9
+    width: calc(85% - 9rem);
+    min-height: 9rem;
+    padding-left: calc(15% + 9rem);
+    background-color: #417ca9;
 }
 
 .head h1 {
-    margin: 0;
-    padding-top: 32px;
-    font-size: 48px;
+    margin: 0 0 3rem;
+    padding-top: 2rem;
+    font-size: 3rem;
     font-weight: bold;
     color: #ffffff;
 }
 
 .nav {
-    margin-top: 22px;
+    position: absolute;
+    margin-top: -1.625rem;
     border: 0;
     border-collapse: collapse
 }
 
+.nav td:hover {
+    background-color: #98bcde
+}
+
+.nav td:hover ul {
+    display: block
+}
+
+.nav li:hover {
+    background-color: #d5e9f4
+}
+
 .body {
-    width: calc(85% - 32px);
-    min-height: calc(100vh - 320px);
-    margin: 80px 7.5% 32px;
-    padding: 15px;
+    width: calc(85% - 2rem - 2px);
+    min-height: calc(100vh - 19rem - 69px);
+    margin: calc(67px + 1rem) 7.5% 2rem;
+    padding: 1rem;
     background-color: #ffffff;
     border: 1px solid #797a7e;
     border-radius: 10px;
@@ -42,11 +55,11 @@
 .input {
     float: left;
     width: 38%;
-    height: 720px
+    height: 45rem
 }
 
 #output {
     width: 60%;
-    margin-top: 8px;
+    margin-top: 0.5rem;
     margin-left: 39%;
 }
