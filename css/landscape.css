@@ -28,18 +28,6 @@
     border-collapse: collapse
 }
 
-.nav td:hover {
-    background-color: #98bcde
-}
-
-.nav td:hover ul {
-    display: block
-}
-
-.nav li:hover {
-    background-color: #d5e9f4
-}
-
 .body {
     width: calc(85% - 2rem - 2px);
     min-height: calc(100vh - 19rem - 69px);
