@@ -9,12 +9,12 @@ function style() {
     
     var nav_lang = document.getElementsByTagName("a")[0];
     var cont_lang = document.getElementsByTagName("ul")[0]
-    nav_lang.onfocus = function() {
+    nav_lang.onclick = function() {
         cont_lang.style.display = "block";
     }
     var nav_funct = document.getElementsByTagName("a")[5];
     var cont_funct = document.getElementsByTagName("ul")[1];
-    nav_funct.onfocus = function() {
+    nav_funct.onclick = function() {
         cont_funct.style.display = "block";
     }
     
