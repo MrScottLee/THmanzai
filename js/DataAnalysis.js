@@ -23,34 +23,34 @@ function da_base(out, j) {
     }
 }
 
-function da_sgl(parm, db, out) {
+function da_sgl(param, db, out) {
     for (var j = 0; j < db_rank.length; j++) {
-        if (parm == db[j]) {
+        if (param == db[j]) {
             da_base(out, j);
         }
     }
 }
 
-function da_dbl(parm_1, parm_2, db_1, db_2, out) {
+function da_dbl(param_1, param_2, db_1, db_2, out) {
     for (var j = 0; j < db_rank.length; j++) {
-        if (parm_1 == db_1[j] && parm_2 == db_2[j]) {
+        if (param_1 == db_1[j] && param_2 == db_2[j]) {
             da_base(out, j);
         }
     }
 }
  
-function da_sgl_appr(parm, db, appr, out) {
+function da_sgl_appr(param, db, appr, out) {
     for (var j = 0; j < db_rank.length; j++) {
-        if (db[j] >= Number(parm)-appr && db[j] <= Number(parm)+appr) {
+        if (db[j] >= Number(param)-appr && db[j] <= Number(param)+appr) {
             da_base(out, j);
         }
     }
 }
 
-function da_dbl_appr(parm_1, parm_2, db_1, db_2, appr_1, appr_2, out) {
+function da_dbl_appr(param_1, param_2, db_1, db_2, appr_1, appr_2, out) {
     for (var j = 0; j < db_rank.length; j++) {
-        var cond = (db_1[j] >= Number(parm_1)-appr_1 && db_1[j] <= Number(parm_1)+appr_1 && 
-                    db_2[j] >= Number(parm_2)-appr_2 && db_2[j] <= Number(parm_2)+appr_2);
+        var cond = (db_1[j] >= Number(param_1)-appr_1 && db_1[j] <= Number(param_1)+appr_1 && 
+                    db_2[j] >= Number(param_2)-appr_2 && db_2[j] <= Number(param_2)+appr_2);
         if (cond) {
             da_base(out, j);
         }
