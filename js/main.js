@@ -7,25 +7,23 @@ function style() {
         css.setAttribute("href", "css/portrait.css");
     }
     
-    var nav_lang = document.getElementsByTagName("a")[0];
-    var cont_lang = document.getElementsByTagName("ul")[0]
+    var nav_lang = document.getElementsByTagName("td")[0];
     nav_lang.onclick = function() {
-        cont_lang.style.display = "block";
+        nav_lang.focus();
     }
-    var nav_funct = document.getElementsByTagName("a")[5];
-    var cont_funct = document.getElementsByTagName("ul")[1];
+    var nav_funct = document.getElementsByTagName("td")[2];
     nav_funct.onclick = function() {
-        cont_funct.style.display = "block";
+        nav_funct.focus();
     }
     
-    document.body.onclick = function() {
-        if (cont_lang.style.display == "block" && nav_lang != document.activeElement) {
-            cont_lang.style.display = "none";
-        }
-        if (cont_funct.style.display == "block" && nav_funct != document.activeElement) {
-            cont_funct.style.display = "none";
-        }
+    var nav = document.getElementsByClassName("nav")[0];
+    nav.onclick = function() {
+        document.activeElement.blur();
     }
+    var bod = document.getElementsByClassName("body")[0];
+    bod.onclick = function() {
+        document.activeElement.blur();
+    }    
 }
 
 function main() {

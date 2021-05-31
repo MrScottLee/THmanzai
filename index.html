@@ -29,16 +29,16 @@
             <table class="nav">
                 <tr>
                     <td>
-                        <a href="#">切换语言</a>
+                        切换语言
                         <ul>
                             <li><a href="javascript:void(0);">简体中文</a></li>
-                            <li><a href="en">English</a></li>
-                            <li><a href="jp">日本語</a></li>
+                            <li><a href="index.html?lang=en">English</a></li>
+                            <li><a href="index.html?lang=jp">日本語</a></li>
                         </ul>
                     </td>
-                    <td><a class="instruct" href="https://www.bilibili.com/read/cv1" target="_blank">使用说明</a></td>
+                    <td><a href="https://www.bilibili.com/read/cv1" target="_blank">使用说明</a></td>
                     <td>
-                        <a href="#">其他功能</a>
+                        其他功能
                         <ul>
                             <li><a href="https://www.r-note.jp" target="_blank">R-note（东方M-1漫才制作方）官网</a></li>
                             <li><a href="https://toho-vote.info" target="_blank">东方人气投票官网</a></li>
@@ -55,8 +55,8 @@
                     <table>
                         <tr>
                             <td class="hide"><input id="rs_num" name="rs_num" type="checkbox" /></td>
-                            <td class="item"><label for="rs_num">参赛编号：</label></td>
-                            <td><input name="num" type="number" min=1 max=50000 /></td>
+                            <td class="item"><label id="p_num" for="num">参赛编号：</label></td>
+                            <td><input id="num" name="num" type="number" min=1 max=50000 /></td>
                             <td><input id="adv" class="funct" type="checkbox" /></td>
                             <td><label class="funct" for="adv">高级模式</label></td>
                         </tr>
@@ -66,9 +66,9 @@
                     <table>
                         <tr>
                             <td class="hide"><input id="rs_stage_1" name="rs_stage_1" type="checkbox" /></td>
-                            <td><label id="p_stage_1" for="rs_stage_1">装傻担当（ボケ）：</label></td>
+                            <td><label id="p_stage_1" for="stage_1">装傻担当（ボケ）：</label></td>
                             <td>
-                                <select name="stage_1">
+                                <select id="stage_1" name="stage_1">
                                     <option value=""> </option>
                                     <optgroup label="在常规STG游戏中初登场">
                                         <option value="0.5">一面道中</option>
@@ -98,9 +98,9 @@
                         </tr>
                         <tr>
                             <td class="hide"><input id="rs_stage_2" name="rs_stage_2" type="checkbox" /></td>
-                            <td><label id="p_stage_2" for="rs_stage_2">吐槽担当（ツッコミ）：</label></td>
+                            <td><label id="p_stage_2" for="stage_2">吐槽担当（ツッコミ）：</label></td>
                             <td>
-                                <select name="stage_2">
+                                <select id="stage_2" name="stage_2">
                                     <option value=""> </option>
                                     <optgroup label="在常规STG游戏中初登场">
                                         <option value="0.5">一面道中</option>
@@ -134,13 +134,13 @@
                     <table>
                         <tr>
                             <td class="hide"><input id="rs_year_1" name="rs_year_1" type="checkbox" /></td>
-                            <td><label id="p_year_1" for="rs_year_1">装傻担当（ボケ）：</label></td>
-                            <td><input name="year_1" type="number" min=0 max=19 /></td>
+                            <td><label id="p_year_1" for="year_1">装傻担当（ボケ）：</label></td>
+                            <td><input id="year_1" name="year_1" type="number" min=0 max=19 /></td>
                         </tr>
                         <tr>
                             <td class="hide"><input id="rs_year_2" name="rs_year_2" type="checkbox" /></td>
-                            <td><label id="p_year_2" for="rs_year_2">吐槽担当（ツッコミ）：</label></td>
-                            <td><input name="year_2" type="number" min=0 max=19 /></td>
+                            <td><label id="p_year_2" for="year_2">吐槽担当（ツッコミ）：</label></td>
+                            <td><input id="year_2" name="year_2" type="number" min=0 max=19 /></td>
                         </tr>
                     </table>
                     
@@ -148,22 +148,22 @@
                     <table>
                         <tr>
                             <td class="hide"><input id="rs_pop_1" name="rs_pop_1" type="checkbox" /></td>
-                            <td><label id="p_pop_1" for="rs_pop_1">装傻担当（ボケ）：</label></td>
-                            <td><input name="pop_1" type="number" min=1 max=198 /></td>
+                            <td><label id="p_pop_1" for="pop_1">装傻担当（ボケ）：</label></td>
+                            <td><input id="pop_1" name="pop_1" type="number" min=1 max=198 /></td>
                         </tr>
                         <tr>
                             <td class="hide"><input id="rs_pop_2" name="rs_pop_2" type="checkbox" /></td>
-                            <td><label id="p_pop_2" for="rs_pop_2">吐槽担当（ツッコミ）：</label></td>
-                            <td><input name="pop_2" type="number" min=1 max=198 /></td>
+                            <td><label id="p_pop_2" for="pop_2">吐槽担当（ツッコミ）：</label></td>
+                            <td><input id="pop_2" name="pop_2" type="number" min=1 max=198 /></td>
                         </tr>
                     </table>
                     
                     <table class="po">
                         <tr>
                             <td class="hide"><input id="rs_order" name="rs_order" type="checkbox" /></td>
-                            <td class="item"><label for="rs_order">漫才表演顺序：</label></td>
+                            <td class="item"><label id="p_order" for="order">漫才表演顺序：</label></td>
                             <td>
-                                <select name="order">
+                                <select id="order" name="order">
                                     <option value=""> </option>
                                     <option value="1">第一位</option>
                                     <option value="2">第二位</option>
@@ -176,9 +176,9 @@
                         
                         <tr>
                             <td class="hide"><input id="rs_pv" name="rs_pv" type="checkbox" /></td>
-                            <td class="item"><label for="rs_pv">PV中登场顺序：</label></td>
+                            <td class="item"><label id="p_pv" for="pv">PV中登场顺序：</label></td>
                             <td>
-                                <select name="pv">
+                                <select id="pv" name="pv">
                                     <option value=""> </option>
                                     <option value="1">第一位</option>
                                     <option value="2">第二位</option>

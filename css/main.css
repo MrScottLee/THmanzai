@@ -58,8 +58,28 @@ body {
     text-decoration: none
 }
 
+.nav td > a:hover {
+    background-color: #98bcde
+}
+
+.nav td:hover {
+    background-color: #98bcde
+}
+
 .nav td > a:focus {
     background-color: #98bcde
+}
+
+.nav td:focus {
+    background-color: #98bcde
+}
+
+.nav td:hover ul {
+    display: block
+}
+
+.nav td:focus ul {
+    display: block
 }
 
 .nav ul {

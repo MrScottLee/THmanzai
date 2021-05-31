@@ -19,6 +19,17 @@ function rs_pre() {
             document.getElementById("p_year_2").innerHTML = "吐槽担当（ツッコミ）：";
             document.getElementById("p_pop_1").innerHTML = "装傻担当（ボケ）：";
             document.getElementById("p_pop_2").innerHTML = "吐槽担当（ツッコミ）：";
+            
+            document.getElementById("p_num").setAttribute("for", "rs_num");
+            document.getElementById("p_stage_1").setAttribute("for", "rs_stage_1");
+            document.getElementById("p_stage_2").setAttribute("for", "rs_stage_2");
+            document.getElementById("p_year_1").setAttribute("for", "rs_year_1");
+            document.getElementById("p_year_2").setAttribute("for", "rs_year_2");
+            document.getElementById("p_pop_1").setAttribute("for", "rs_pop_1");
+            document.getElementById("p_pop_2").setAttribute("for", "rs_pop_2");
+            document.getElementById("p_order").setAttribute("for", "rs_order");
+            document.getElementById("p_pv").setAttribute("for", "rs_pv");
+            
         }
         else {
             while (rs_show.length != 0) {
@@ -36,6 +47,16 @@ function rs_pre() {
                 document.getElementById("p_pop_1").innerHTML = "其中一人：";
                 document.getElementById("p_pop_2").innerHTML = "另外一人：";
             }
+            
+            document.getElementById("p_num").setAttribute("for", "num");
+            document.getElementById("p_stage_1").setAttribute("for", "stage_1");
+            document.getElementById("p_stage_2").setAttribute("for", "stage_2");
+            document.getElementById("p_year_1").setAttribute("for", "year_1");
+            document.getElementById("p_year_2").setAttribute("for", "year_2");
+            document.getElementById("p_pop_1").setAttribute("for", "pop_1");
+            document.getElementById("p_pop_2").setAttribute("for", "pop_2");
+            document.getElementById("p_order").setAttribute("for", "order");
+            document.getElementById("p_pv").setAttribute("for", "pv");
         }
     }
     
