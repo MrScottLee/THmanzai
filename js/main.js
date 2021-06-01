@@ -493,6 +493,7 @@ function bonus() {
     }
 }
 
+
 window.onload = function() {
     style();
     main();
