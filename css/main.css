@@ -131,6 +131,7 @@ select {
     width: 12.5rem;
     height: 2rem;
     padding-left: 0.5rem;
+    font-size: 1rem;
     border: 1px solid #797a7e;
     border-radius: 5px
 }
@@ -146,6 +147,10 @@ select:focus {
 
 select:focus option {
     background-color: #ffffff
+}
+
+input {
+    font-size: 1rem
 }
 
 input[type="number"] {
